@@ -1,0 +1,57 @@
+html
+    head
+        title #{rest.name}
+        script(src="/rest")
+
+    body(onload="init()")
+        div
+            a(href="/restaurants") Restaurant List
+            br
+            a(href="/addrestaurant") Create A Restaurant
+        div
+            p Restaurant Name
+            input(type="text" id="newName" value= rest.name)
+            br
+            p Minimum Order
+            input(type="text" id="newMinOrder" value= rest.min_order)
+            br
+            p Delivery Fee
+            input(type="text" id="newDelivery" value = rest.delivery_fee)
+        div
+            h3 Create a Category
+            p To add a new Category, enter name and then press add button. Note: Category name must be unique
+            input(type="text" id="newCategory")
+            button(id="categoryButton") Add Category
+        div
+            h3 Create an Item
+            p To add a new Item to the menu specify the category and fill out required fields
+            select(name="dropdown" id="dropdown")
+                each  val, index in rest.menu
+                    option #{index}
+            br
+            p Input item name
+            input(type="text" id="itemName")
+            br
+            p Input item description
+            input(type="text" id="itemDescription")
+            br
+            p Input item price
+            input(type="text" id="itemPrice")
+            br
+            button(id="itemButton" ) Add Item
+
+        div
+            h3 Menu
+            div(id = "menu")
+                each category, index in rest.menu
+                    div(id= index)
+                        h4 #{index}
+                        each item, index in category
+                            div(id= index)
+                                h5 #{item.name}
+                                p ID: #{index}
+                                p Description: #{item.description}
+                                p Price: $ #{item.price}
+
+        div
+            button(id="save") Save

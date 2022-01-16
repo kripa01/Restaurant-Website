@@ -1,0 +1,20 @@
+html
+    head
+        title Restaurant  List
+    body
+        div
+            a(href="/restaurants") Restaurant List
+            br
+            a(href="/addrestaurant") Create A Restaurant
+        div
+            ul
+            each rest in restaurantData
+                li
+                    -const url = 'restaurants/' + rest.id;
+                    a(href= '/' + url ) #{rest.name}
+
+
+
+
+
+

@@ -1,0 +1,26 @@
+html
+    head
+        title Add A Restaurant
+        script(src="addrest")
+
+    body(onload="init()")
+        div
+            a(href="/restaurants") Restaurant List
+            br
+            a(href="/addrestaurant") Create A Restaurant
+
+        div
+            h3 Fill out fields below to create a new restaurant
+        div
+            h4 Restaurant Name
+            input(type="text" id="name")
+            |
+            h4 Minimum order
+            input(type="text" id="minOrder")
+            |
+            h4 Delivery Charge:
+            input(type="text" id="delivery")
+            |
+        div
+            |
+            button(id="addButton") Save
